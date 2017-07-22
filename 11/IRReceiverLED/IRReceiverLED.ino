@@ -23,27 +23,29 @@ void alarmRaised() {
   digitalWrite(PIN_LED, LOW);
 }
 
-void analyze(decode_results* results) {
+bool analyze(decode_results* results) {
   int len = sizeof(rawData) / sizeof(rawData[0]);
   if (len != results->rawlen) {
-    return;
+    return false;
   }
   for (int i = 1; i < len; i++) {
     unsigned int v = results->rawbuf[i] * USECPERTICK;
     unsigned int ref = rawData[i - 1];
     if (v < ref - sensitivity) {
-      return;
+      return false;
     }
     if (v > ref + sensitivity) {
-      return;
+      return false;
     }
   }
-  alarmRaised();
+  return true;
 }
 
 void loop() {
   if (ir_receiver.decode(&results)) {
-    analyze(&results);
+    if (analyze(&results)) {
+      alarmRaised();
+    }
     ir_receiver.resume();
   }
 }
