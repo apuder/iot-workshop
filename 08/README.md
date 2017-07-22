@@ -1,7 +1,7 @@
 # Low-Level Access
 
 This tutorial demonstrates some low-level access of the Arduino. Functionally the two sketches discussed below
-are equivalent to the <a href="../03/">Arduino controlling LED &amp; Button</a> example. In particular, the wiring
+are equivalent to the <a href="../02/">Arduino controlling LED &amp; Button</a> example. In particular, the wiring
 is identical to the earlier example.
 
 ### Memory Mapped I/O
@@ -43,7 +43,7 @@ C function with no input parameters and no return type that will be called whene
 Sketch
 <a href="https://github.com/apuder/iot-workshop/blob/master/08/ArduinoLEDButtonUsingInterrupts/ArduinoLEDButtonUsingInterrupts.ino">ArduinoLEDButtonUsingInterrupts</a>
 is functionally equivalent to the
-<a href="../03/">Arduino controlling LED &amp; Button</a> example, however, function
+<a href="../02/">Arduino controlling LED &amp; Button</a> example, however, function
 <a href="https://www.arduino.cc/en/Reference/AttachInterrupt">`attachInterrupt()`</a> is used to register
 function `isr_button()` as an ISR. The ISR will be called whenever there is a state change on the GPIO pin
 to which the button is connected. There are several things to consider:
