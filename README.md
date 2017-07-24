@@ -2,7 +2,7 @@
 
 This web page hosts the companion material for a two-day IoT workshop at the San Francisco State University.
 The focus of this IoT workshop is an introduction of the Arduino-based microcontroller. In a sequence of
-twelve steps, this
+thirteen steps, this
 tutorial walks through the basics of electronics followed by various examples to show how the Arduino
 can be used. Towards the end more sophisticated examples demonstrate the use of infrared for communication
 as well as how an Arduino can send a notification to a regular smartphone via the Cloud. The following parts
