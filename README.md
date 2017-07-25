@@ -13,9 +13,11 @@ are required for the tutorial:
 * <a href="http://a.co/j8D9G7R">FTDI USB to TTL Serial Converter Adapter</a>
 * <a href="http://a.co/3dRiMDa">ESP8266</a>
 
-A solid knowledge of programming in the C/C++ programming languages is expected. In particular, functions,
-loops, and conditional statements should be understood for this tutorial. The following provides an overview
-of the individual steps of this tutorial:
+A solid knowledge of imperative programming concepts is required. In particular, functions,
+loops, and conditional statements should be understood for this tutorial. All code samples are written in
+simple C and C++.
+
+The following provides an overview of the individual steps of this tutorial:
 
 1. <a href="00/">Lighting up a LED</a>
 2. <a href="01/">Lighting up a LED when a button is pressed</a>
@@ -30,4 +32,3 @@ of the individual steps of this tutorial:
 11. <a href="10/">Sending & receiving of infrared signals</a>
 12. <a href="11/">Remote communication via infrared</a>
 13. <a href="12/">Connecting an Arduino to the Cloud</a>
-
