@@ -21,7 +21,8 @@ void loop() {
 
 One issue with <a href="https://www.arduino.cc/en/Reference/Delay">`delay()`</a> is that blocks the
 CPU and it is not possible to do anything else during the delay because the Arduino has only one
-thread of execution. The following sketch makes use of function
+thread of execution. In other words, the Arduino does not support concurrent programming via the
+common technique of multi-threading. The following sketch makes use of function
 <a href="https://www.arduino.cc/en/Reference/Millis">`millis()`</a> to make the LED blink in the
 same pattern as with the sketch above:
 
@@ -67,5 +68,5 @@ of a second for one iteration.
 
 
 
-<img src="OneBlinkingLED_bb.png" width="50%"/>
+<img src="doc/OneBlinkingLED_bb.png" width="50%"/>
 
