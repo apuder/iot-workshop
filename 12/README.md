@@ -8,7 +8,7 @@ conditional statements. The IFTTT service is popular among home automation and D
 IFTTT also offers free Android and iOS apps for download that are used in this tutorial. The diagram below
 depicts the overall architecture:
 
-<img src="architecture.png"/>
+<img src="doc/architecture.png"/>
 
 The ESP8266 uses its built-in WiFi module to connect to a local WiFi router. The sketch running on the
 ESP8266 performs an HTTP POST request to a remote IFTTT server. That POST request contains a unique key
@@ -27,7 +27,7 @@ FTDI cable needs to be used that converts USB to a serial signal. The ESP8266 is
 
 The following wiring shows how the FTDI cable is connected to the ESP8266:
 
-<img src="ESP8266Programmer_bb.png" width="50%"/>
+<img src="doc/ESP8266Programmer_bb.png" width="50%"/>
 
 The wiring features two buttons: a reset and a flash button. The reset button causes the ESP8266 to reboot.
 The flash button is connected to GPIO pin 0. When the ESP8266 reboots, it will enter flashing mode when this pin
@@ -44,11 +44,15 @@ ESP8266, the following needs to be done once:
 * In the Arduino IDE, go to the _Preferences_ dialog.
 * In the "_Additional Board Manager URLs_" field, enter the following URL:
   `http://arduino.esp8266.com/stable/package_esp8266com_index.json`. Multiple URLs in that field need to
-  be comma-separated  <a href="doc/Preferences.png"><img width="50px" src="doc/Preferences.png"/></a>.
-* After clicking _OK_, go to _Tools > Board > Boards Manager_  <a href="doc/Board%20Manager.png"> <img width="60px" src="doc/Board%20Manager.png"/></a>. 
+  be comma-separated.<br/>
+  <a href="doc/Preferences.png"><img width="50px" src="doc/Preferences.png"/></a>
+* After clicking _OK_, go to _Tools > Board > Boards Manager_.<br/>
+  <a href="doc/Board%20Manager.png"><img width="60px" src="doc/Board%20Manager.png"/></a> 
 * Scroll down, select and install the "_esp8266_" platform published by the ESP8266 Community.
 * Select board _Tools > Board > Generic ESP8266 Module_. Note that no programmer needs to be selected.
-* Select port _Tools > Port_   <a href="doc/Port%20Setting.jpg"><img width="50px" src="doc/Port%20Setting.jpg"/></a>. It might be necessary to install a USB driver to recognize the FTDI cable which is available at   <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">silabs.com</a>.
+* Select port _Tools > Port_. It might be necessary to install a USB driver to recognize the FTDI cable which
+  is available at <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">silabs.com</a>.<br/>
+  <a href="doc/Port%20Setting.jpg"><img width="50px" src="doc/Port%20Setting.jpg"/></a>
 
 ### IFTTT
 
@@ -59,7 +63,8 @@ required setup:
 * Create an account at <a href="https://ifttt.com">IFTTT.com</a>
 * <a href="https://ifttt.com/create/connect-maker_webhooks?sid=1">Connect to Webhooks</a>. Click on "_Connect_".
 * On the next page click on "_Receive a web request_".
-* Enter "_esp8266_triggered_" as the Event Name. Click on "_Create trigger_"   <a href="doc/App%20Created.jpg"> <img width="50px" src="doc/App%20Created.jpg"/> </a>.
+* Enter "_esp8266_triggered_" as the Event Name. Click on "_Create trigger_".<br/>
+  <a href="doc/App%20Created.jpg"><img width="50px" src="doc/App%20Created.jpg"/></a>
 * Click on "_that_"
 * On the "_Choose action service_" search for "_Notification_" service. Click on "_Notifications_".
 * Click on "_Connect_" on the next page.
@@ -67,7 +72,8 @@ required setup:
 * In the text box "_Notification_" replace the text with the following:
   `{{EventName}} occurred at {{OccurredAt}}`
 * Click on "_Create action_"
-* On the next page click "_Finish_"  <a href="doc/Configure.jpg"> <img width="50px" src="doc/Configure.jpg"/></a>.
+* On the next page click "_Finish_".<br/>
+  <a href="doc/Configure.jpg"> <img width="50px" src="doc/Configure.jpg"/></a>
 * Go to the <a href="https://ifttt.com/services/maker_webhooks/settings">Webhook Settings</a> page.
 * On that page there is a URL that begins with `https://maker.ifttt.com/use/`. What follows in the URL is
   the IFTTT API key. The API key identifies the user who created that key.  In the following this key is
@@ -76,14 +82,16 @@ required setup:
   ```
   curl -X POST https://maker.ifttt.com/trigger/esp8266_triggered/with/key/API_KEY
   ``` 
-The `curl` command will issue an HTTPS request to the given URL<a href="doc/Terminal.png"> <img width="50px" src="doc/Terminal.png"/></a>. The IFTTT server identifies a user by the
+The `curl` command will issue an HTTPS request to the given URL. The IFTTT server identifies a user by the
 `API_KEY` and will send a push notification to the user's mobile device. For this to happen, the user must
-have installed the (free) IFTTT app for Android or iOS and be logged in to IFTTT on the mobile device.
+have installed the (free) IFTTT app for Android or iOS and be logged in to IFTTT on the mobile device.<br/>
+<a href="doc/Terminal.png"> <img width="50px" src="doc/Terminal.png"/></a>
+
 
 ### ESP8266 Sketch
 
 The
-<a href="https://github.com/apuder/iot-workshop/blob/master/12/ESP8266_IFTTT/ESP8266_IFTTT.ino">ESP8266_IFTTT</a>
+<a href="ESP8266_IFTTT/ESP8266_IFTTT.ino">ESP8266_IFTTT</a>
 sketch is printed in its entirety below and demonstrated how to perform the POST request to the
 IFTTT server. Conceptually, the sketch does the same as the `curl` script mentioned above. Whenever the
 flash button is pressed, the ESP8266 will perform a POST request and thereby trigger a push-notification
@@ -103,7 +111,8 @@ then call function `doPOST()` to perform the actual POST request to the IFTTT se
 sketch does not use a dedicated HTTP library. The sketch communicates to the IFTTT server by using
 a plain TCP connection and by sending the
 <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Message_format">HTTP protocol</a>
-that is constructed via method `client.print()`  <a href="doc/Arduino%20Terminal.png"> <img width="60px" src="doc/Arduino%20Terminal.png"/></a>.
+that is constructed via method `client.print()`.<br/>
+<a href="doc/Arduino%20Terminal.png"> <img width="60px" src="doc/Arduino%20Terminal.png"/></a>
  
 
 ```c
