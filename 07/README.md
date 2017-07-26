@@ -11,13 +11,16 @@ The Arduino has no corresponding digital-to-analog converter. Instead, the Ardui
 <a href="https://www.arduino.cc/en/Tutorial/PWM">_Pulse Width Modulation_</a>, or PWM for short.
 In PWM, a digital signal is used to fake an analog signal. This is achieved by quickly alternating
 a digital signal between 0V (LOW) and 5V (HIGH) at a high frequency in such a pattern that it appears
-as an analog signal. Function
+as an analog signal. The _duty cycle_ determines the percentage of the time the signal is HIGH. E.g.,
+a duty cycle of 25% indicates that the signal is on the average 25% HIGH and 75% LOW.
+
+<img src="https://developer.android.com/things/images/pwm-duty.png" width="50%"/>
+
+Function
 <a href="https://www.arduino.cc/en/Reference/AnalogWrite">`analogWrite()`</a>
 can be used to generate a PWM signal. Note that only pins that are prefixed with a "~" can be used
-with PWM.
-
-The sketch below reads an analog value from pin A0 and then generates a PWM signal on pin 6. The
-brightness of the LED can be controlled by adjusting the potentiometer.
+with PWM. The sketch below reads an analog value from pin A0 and then generates a PWM signal on pin 6.
+The brightness of the LED can be controlled by adjusting the potentiometer.
 
 ```c
 const int PIN_LED = 6;
@@ -35,5 +38,5 @@ void loop() {
 }
 ```
 
-<img src="ArduinoLEDPotentiometer_bb.png" width="50%"/>
+<img src="doc/ArduinoLEDPotentiometer_bb.png" width="50%"/>
 
