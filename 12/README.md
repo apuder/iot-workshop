@@ -25,15 +25,17 @@ FTDI cable needs to be used that converts USB to a serial signal. The ESP8266 is
 
 <img src="http://diyhacking.com/wp-content/uploads/2016/07/esp8266_pinout-min.png"/>
 
+Note that the ESP8266 operates on 3.3V and the jumper on the FTDI cable needs to be set accordingly.
+Powering the ESP8266 with 5V will destroy it.
 The following wiring shows how the FTDI cable is connected to the ESP8266:
 
 <img src="doc/ESP8266Programmer_bb.png" width="50%"/>
 
 The wiring features two buttons: a reset and a flash button. The reset button causes the ESP8266 to reboot.
 The flash button is connected to GPIO pin 0. When the ESP8266 reboots, it will enter flashing mode when this pin
-is asserted to low. In order to flash a new sketch to the ESP8266, the following procedure is necessary:
-keep the flash button pressed while pressing the reset button. Both buttons can be released then. Once the
-ESP8266 is in flashing mode, a new sketch can be uploaded via the Arduino IDE.
+is asserted to low. In order to upload a new sketch to the ESP8266, the following procedure is necessary:
+press the flash button and keep it pressed while also pressing the reset button. Both buttons can be released then.
+Once the ESP8266 is in flashing mode, a new sketch can be uploaded via the Arduino IDE.
 
 
 ### Arduino IDE
@@ -80,7 +82,7 @@ required setup:
 * On the next page click "_Finish_".<br/>
   <a href="doc/Finish.jpg"> <img width="50px" src="doc/Finish.jpg"/></a>
 * Go to the <a href="https://ifttt.com/services/maker_webhooks/settings">Webhook Settings</a> page.
-* On that page there is a URL that begins with `https://maker.ifttt.com/use/`. What follows in the URL is
+* On the top of that page it reads `Your key is:`. What follows is
   the IFTTT API key. The API key identifies the user who created that key.  In the following this key is
   referred to as `API_KEY`.<br/>
   <a href="doc/maker.jpg"> <img width="50px" src="doc/maker.jpg"/></a>
