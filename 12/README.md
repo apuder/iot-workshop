@@ -61,23 +61,29 @@ powerful, but also not always intuitive to use. The following is a step-by-step 
 required setup:
 
 * Create an account at <a href="https://ifttt.com">IFTTT.com</a>
-* <a href="https://ifttt.com/create/connect-maker_webhooks?sid=1">Connect to Webhooks</a>. Click on "_Connect_".
-* On the next page click on "_Receive a web request_".
+* <a href="https://ifttt.com/maker_webhooks">Connect to Webhooks</a>. Click on "_Connect_".<br/>
+  <a href="doc/webhook.jpg"><img width="50px" src="doc/webhook.jpg"/></a>
+* On the next page click on "_Receive a web request_".<br/>
+  <a href="doc/Request.jpg"><img width="50px" src="doc/Request.jpg"/></a>
 * Enter "_esp8266_triggered_" as the Event Name. Click on "_Create trigger_".<br/>
-  <a href="doc/App%20Created.jpg"><img width="50px" src="doc/App%20Created.jpg"/></a>
-* Click on "_that_"
-* On the "_Choose action service_" search for "_Notification_" service. Click on "_Notifications_".
-* Click on "_Connect_" on the next page.
-* Click on "_Send a notification from the IFTTT app_" on the next page.
+  <a href="doc/CreateTrigger.jpg"><img width="50px" src="doc/CreateTrigger.jpg"/></a>
+* Click on "_that_"<br/>
+  <a href="doc/that.jpg"><img width="50px" src="doc/that.jpg"/></a>
+* On the "_Choose action service_" search for "_Notification_" service and Click on "_Notifications_".<br/>
+  <a href="doc/Notification.jpg"><img width="50px" src="doc/Notification.jpg"/></a>
+* Click on "_Send a notification from the IFTTT app_" on the next page.<br/>
+  <a href="doc/ChooseAction.jpg"><img width="50px" src="doc/ChooseAction.jpg"/></a>
 * In the text box "_Notification_" replace the text with the following:
-  `{{EventName}} occurred at {{OccurredAt}}`
-* Click on "_Create action_"
+  `{{EventName}} occurred at {{OccurredAt}}`<br/>
+  <a href="doc/CompleteActionField.jpg"> <img width="50px" src="doc/CompleteActionField.jpg"/></a>
+* Click on "_Create action_".
 * On the next page click "_Finish_".<br/>
-  <a href="doc/Configure.jpg"> <img width="50px" src="doc/Configure.jpg"/></a>
+  <a href="doc/Finish.jpg"> <img width="50px" src="doc/Finish.jpg"/></a>
 * Go to the <a href="https://ifttt.com/services/maker_webhooks/settings">Webhook Settings</a> page.
 * On that page there is a URL that begins with `https://maker.ifttt.com/use/`. What follows in the URL is
   the IFTTT API key. The API key identifies the user who created that key.  In the following this key is
-  referred to as `API_KEY`.
+  referred to as `API_KEY`.<br/>
+  <a href="doc/maker.jpg"> <img width="50px" src="doc/maker.jpg"/></a>
 * If you are running on a Unix system you can now try to trigger an event from the command line via:
   ```
   curl -X POST https://maker.ifttt.com/trigger/esp8266_triggered/with/key/API_KEY
