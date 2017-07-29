@@ -47,14 +47,14 @@ ESP8266, the following needs to be done once:
 * In the "_Additional Board Manager URLs_" field, enter the following URL:
   `http://arduino.esp8266.com/stable/package_esp8266com_index.json`. Multiple URLs in that field need to
   be comma-separated.<br/>
-  <a href="doc/Preferences.png"><img width="50px" src="doc/Preferences.png"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Preferences.jpg"><img src="doc/Preferences-th.png"/></a>
 * After clicking _OK_, go to _Tools > Board > Boards Manager_.<br/>
-  <a href="doc/Board%20Manager.png"><img width="60px" src="doc/Board%20Manager.png"/></a> 
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Board_Manager.jpg"><img src="doc/Board_Manager-th.png"/></a> 
 * Scroll down, select and install the "_esp8266_" platform published by the ESP8266 Community.
 * Select board _Tools > Board > Generic ESP8266 Module_. Note that no programmer needs to be selected.
 * Select port _Tools > Port_. It might be necessary to install a USB driver to recognize the FTDI cable which
   is available at <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">silabs.com</a>.<br/>
-  <a href="doc/Port%20Setting.jpg"><img width="50px" src="doc/Port%20Setting.jpg"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Port_Setting.jpg"><img src="doc/Port_Setting-th.png"/></a>
 
 ### IFTTT
 
@@ -64,28 +64,28 @@ required setup:
 
 * Create an account at <a href="https://ifttt.com">IFTTT.com</a>
 * <a href="https://ifttt.com/maker_webhooks">Connect to Webhooks</a>. Click on "_Connect_".<br/>
-  <a href="doc/webhook.jpg"><img width="50px" src="doc/webhook.jpg"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/webhook.jpg"><img src="doc/webhook-th.png"/></a>
 * On the next page click on "_Receive a web request_".<br/>
-  <a href="doc/Request.jpg"><img width="50px" src="doc/Request.jpg"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Request.jpg"><img src="doc/Request-th.png"/></a>
 * Enter "_esp8266_triggered_" as the Event Name. Click on "_Create trigger_".<br/>
-  <a href="doc/CreateTrigger.jpg"><img width="50px" src="doc/CreateTrigger.jpg"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/CreateTrigger.jpg"><img src="doc/CreateTrigger-th.png"/></a>
 * Click on "_that_"<br/>
-  <a href="doc/that.jpg"><img width="50px" src="doc/that.jpg"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/that.jpg"><img src="doc/that-th.png"/></a>
 * On the "_Choose action service_" search for "_Notification_" service and Click on "_Notifications_".<br/>
-  <a href="doc/Notification.jpg"><img width="50px" src="doc/Notification.jpg"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Notification.jpg"><img src="doc/Notification-th.png"/></a>
 * Click on "_Send a notification from the IFTTT app_" on the next page.<br/>
-  <a href="doc/ChooseAction.jpg"><img width="50px" src="doc/ChooseAction.jpg"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ChooseAction.jpg"><img src="doc/ChooseAction-th.png"/></a>
 * In the text box "_Notification_" replace the text with the following:
   `{{EventName}} occurred at {{OccurredAt}}`<br/>
-  <a href="doc/CompleteActionField.jpg"> <img width="50px" src="doc/CompleteActionField.jpg"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/CompleteActionField.jpg"><img src="doc/CompleteActionField-th.png"/></a>
 * Click on "_Create action_".
 * On the next page click "_Finish_".<br/>
-  <a href="doc/Finish.jpg"> <img width="50px" src="doc/Finish.jpg"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Finish.jpg"><img src="doc/Finish-th.png"/></a>
 * Go to the <a href="https://ifttt.com/services/maker_webhooks/settings">Webhook Settings</a> page.
 * On the top of that page it reads `Your key is:`. What follows is
   the IFTTT API key. The API key identifies the user who created that key.  In the following this key is
   referred to as `API_KEY`.<br/>
-  <a href="doc/maker.jpg"> <img width="50px" src="doc/maker.jpg"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/maker.jpg"><img src="doc/maker-th.png"/></a>
 * If you are running on a Unix system you can now try to trigger an event from the command line via:
   ```
   curl -X POST https://maker.ifttt.com/trigger/esp8266_triggered/with/key/API_KEY
@@ -93,7 +93,7 @@ required setup:
 The `curl` command will issue an HTTPS request to the given URL. The IFTTT server identifies a user by the
 `API_KEY` and will send a push notification to the user's mobile device. For this to happen, the user must
 have installed the (free) IFTTT app for Android or iOS and be logged in to IFTTT on the mobile device.<br/>
-<a href="doc/Terminal.png"> <img width="50px" src="doc/Terminal.png"/></a>
+<a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Terminal.jpg"><img src="doc/Terminal-th.png"/></a>
 
 
 ### ESP8266 Sketch
@@ -120,7 +120,7 @@ sketch does not use a dedicated HTTP library. The sketch communicates to the IFT
 a plain TCP connection and by sending the
 <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Message_format">HTTP protocol</a>
 that is constructed via method `client.print()`.<br/>
-<a href="doc/Arduino%20Terminal.png"> <img width="60px" src="doc/Arduino%20Terminal.png"/></a>
+<a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Arduino_Terminal.jpg"><img src="doc/Arduino_Terminal-th.png"/></a>
  
 
 ```c
