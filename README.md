@@ -14,7 +14,7 @@ are required for the tutorial:
 * <a href="http://a.co/3dRiMDa">ESP8266</a>
 * <a href="http://a.co/iyfeq5Z">ESP8266 breakout board</a>
 
-A solid knowledge of imperative programming concepts is required. In particular, functions,
+A solid knowledge of common programming concepts is required. In particular, local and global variables, functions,
 loops, and conditional statements should be understood for this tutorial. All code samples are written in
 simple C and C++.
 
