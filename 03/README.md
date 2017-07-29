@@ -8,7 +8,7 @@ to interact with the serial
 interface of an Arduino. In order to use the the serial interface, it must first be initialized via
 <a href="https://www.arduino.cc/en/Serial/Begin">`Serial.begin()`</a>. This typically happens in the
 `setup()` function. The parameter to method `Serial.begin()`
-indicates the transmission speed (in the example below it is 9600 bits per second). Once the serial
+indicates the transmission speed (in the example below it is 9600 bits per second, or 9600 baud). Once the serial
 interface has been initialized, method
 <a href="https://www.arduino.cc/en/Serial/Println">`Serial.println()`</a> can be used to print log
 messages. This example does not require any wiring. The sketch below will
