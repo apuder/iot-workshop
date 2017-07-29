@@ -13,21 +13,21 @@ void setup() {
 }
 
 
-void dump(decode_results* results) {
+void dump(decode_results& results) {
   Serial.print("unsigned int rawData[] = {");
 
-  for (int i = 1;  i < results->rawlen;  i++) {
+  for (int i = 1;  i < results.rawlen;  i++) {
     if (i != 1) {
       Serial.print(", ");
     }
-    Serial.print(results->rawbuf[i] * USECPERTICK, DEC);
+    Serial.print(results.rawbuf[i] * USECPERTICK, DEC);
   }
   Serial.println("};");
 }
 
 void loop() {
   if (ir_receiver.decode(&results)) {
-    dump(&results);
+    dump(results);
     ir_receiver.resume();
   }
 }
