@@ -33,3 +33,7 @@ The following provides an overview of the individual steps of this tutorial:
 11. <a href="10/">Sending & receiving of infrared signals</a>
 12. <a href="11/">Remote communication via infrared</a>
 13. <a href="12/">Connecting an Arduino to the Cloud</a>
+
+Additional material is available via the following slides:
+
+<a href="doc/iot-workshop-slides.pdf"><img src="doc/title.png"/></a>
