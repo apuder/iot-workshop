@@ -60,14 +60,13 @@ ESP8266, the following needs to be done once:
 * In the "_Additional Board Manager URLs_" field, enter the following URL:
   `http://arduino.esp8266.com/stable/package_esp8266com_index.json`. Multiple URLs in that field need to
   be comma-separated.<br/>
-  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Preferences.jpg"><img src="doc/Preferences-th.png"/></a>
-* After clicking _OK_, go to _Tools > Board > Boards Manager_.<br/>
-  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Board_Manager.jpg"><img src="doc/Board_Manager-th.png"/></a> 
-* Scroll down, select and install the "_esp8266_" platform published by the ESP8266 Community.
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/preferences.png"><img src="doc/preferences.png" width="100px"/></a>
+* After clicking _OK_, go to _Tools > Board > Boards Manager_. Scroll down, select and install the "_esp8266_" platform published by
+  the ESP8266 Community.<br/>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/boards-manager.png"><img src="doc/boards-manager.png" width="100px"/></a> 
 * Select board _Tools > Board > Generic ESP8266 Module_. Note that no programmer needs to be selected.
 * Select port _Tools > Port_. It might be necessary to install a USB driver to recognize the FTDI adapter which
-  is available at <a href="http://www.ftdichip.com/Drivers/VCP.htm">ftdichip.com</a>.<br/>
-  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Port_Setting.jpg"><img src="doc/Port_Setting-th.png"/></a>
+  is available at <a href="http://www.ftdichip.com/Drivers/VCP.htm">ftdichip.com</a>.
 
 ### IFTTT
 
