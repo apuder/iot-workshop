@@ -20,21 +20,34 @@ discuss the complete setup step-by-step.
 ### ESP8266 Programmer
 
 The ESP8266 does not have an USB interface. In order to flash compiled sketches to the ESP8266, a so-called
-FTDI cable needs to be used that converts USB to a serial signal. The ESP8266 is connected to the RXD/TXD
-(receive/transmit) pins of the FTDI cable. The following diagram shows the pinout of the ESP8266:
+FTDI adapter needs to be used that converts USB to a serial signal. The ESP8266 is connected to the RXD/TXD
+(receive/transmit) pins of the FTDI adapter. The following diagram shows the pinout of the ESP8266:
 
 <img src="http://diyhacking.com/wp-content/uploads/2016/07/esp8266_pinout-min.png"/>
 
-Note that the ESP8266 operates on 3.3V and the jumper on the FTDI cable needs to be set accordingly.
+Note that the ESP8266 operates on 3.3V and the jumper on the FTDI adapter needs to be set accordingly.
 Powering the ESP8266 with 5V will destroy it.
-The following wiring shows how the FTDI cable is connected to the ESP8266:
+The following wiring shows how the FTDI adapter is connected to the ESP8266:
 
 <img src="doc/ESP8266Programmer_bb.png" width="50%"/>
+
+A few notes on the wiring:
+
+* The color of the wires have no relevance.
+* The wiring as shown would require female-to-female cables that are not part of the Arduino starter kit.
+  The FTDI adapter can be plugged in to the breadboard. Use the breakout board for the ESP8266. Then use
+  the regular male-to-male cables to make the connections on the breadboard.
+* The sequence of pins for the FTDI adapter shown in the wiring diagram is different from the actual
+  FTDI adapter used for this tutorial. Make sure to make the correct connections, e.g., the ESP8266's RXD pin
+  needs to be connected to the FTDI adapter's TXD pin, etc.
+* The two buttons are used to put the ESP8266 into flash mode as explained below. The flash button is
+  connected to the ESP8266 pin 0 and can also be used by a sketch for other purposes.
 
 The wiring features two buttons: a reset and a flash button. The reset button causes the ESP8266 to reboot.
 The flash button is connected to GPIO pin 0. When the ESP8266 reboots, it will enter flashing mode when this pin
 is asserted to low. In order to upload a new sketch to the ESP8266, the following procedure is necessary:
-press the flash button and keep it pressed while also pressing the reset button. Both buttons can be released then.
+press the flash button and keep it pressed while also pressing the reset button. The ESP8266 will reboot
+and the reset button can be released. Keep the flash button pressed for a few more seconds while the ESP8266 boots.
 Once the ESP8266 is in flashing mode, a new sketch can be uploaded via the Arduino IDE.
 
 
@@ -52,8 +65,8 @@ ESP8266, the following needs to be done once:
   <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Board_Manager.jpg"><img src="doc/Board_Manager-th.png"/></a> 
 * Scroll down, select and install the "_esp8266_" platform published by the ESP8266 Community.
 * Select board _Tools > Board > Generic ESP8266 Module_. Note that no programmer needs to be selected.
-* Select port _Tools > Port_. It might be necessary to install a USB driver to recognize the FTDI cable which
-  is available at <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">silabs.com</a>.<br/>
+* Select port _Tools > Port_. It might be necessary to install a USB driver to recognize the FTDI adapter which
+  is available at <a href="http://www.ftdichip.com/Drivers/VCP.htm">ftdichip.com</a>.<br/>
   <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Port_Setting.jpg"><img src="doc/Port_Setting-th.png"/></a>
 
 ### IFTTT
@@ -65,14 +78,19 @@ required setup:
 * Create an account at <a href="https://ifttt.com">IFTTT.com</a>
 * <a href="https://ifttt.com/maker_webhooks">Connect to Webhooks</a>. Click on "_Connect_".<br/>
   <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/webhook.jpg"><img src="doc/webhook-th.png"/></a>
+* On the top of the page, click on "_My Applets_".
+* Click on "_New Applet_".
+* Click on "_this_".
+* In the search box, search for and click on "_Webhooks_".
 * On the next page click on "_Receive a web request_".<br/>
   <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Request.jpg"><img src="doc/Request-th.png"/></a>
 * Enter "_esp8266_triggered_" as the Event Name. Click on "_Create trigger_".<br/>
   <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/CreateTrigger.jpg"><img src="doc/CreateTrigger-th.png"/></a>
 * Click on "_that_"<br/>
   <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/that.jpg"><img src="doc/that-th.png"/></a>
-* On the "_Choose action service_" search for "_Notification_" service and Click on "_Notifications_".<br/>
+* On the "_Choose action service_" search for "_Notifications_" service and Click on "_Notifications_".<br/>
   <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Notification.jpg"><img src="doc/Notification-th.png"/></a>
+* Click on "_Connect_"."
 * Click on "_Send a notification from the IFTTT app_" on the next page.<br/>
   <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ChooseAction.jpg"><img src="doc/ChooseAction-th.png"/></a>
 * In the text box "_Notification_" replace the text with the following:
@@ -100,7 +118,7 @@ have installed the (free) IFTTT app for Android or iOS and be logged in to IFTTT
 
 The
 <a href="ESP8266_IFTTT/ESP8266_IFTTT.ino">ESP8266_IFTTT</a>
-sketch is printed in its entirety below and demonstrated how to perform the POST request to the
+sketch is printed in its entirety below and demonstrates how to perform the POST request to the
 IFTTT server. Conceptually, the sketch does the same as the `curl` script mentioned above. Whenever the
 flash button is pressed, the ESP8266 will perform a POST request and thereby trigger a push-notification
 to the user's mobile device. Note that the flash button is connected to GPIO pin 0 and can therefore be
