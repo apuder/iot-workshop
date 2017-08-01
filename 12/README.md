@@ -77,33 +77,38 @@ required setup:
 
 * Create an account at <a href="https://ifttt.com">IFTTT.com</a>
 * <a href="https://ifttt.com/maker_webhooks">Connect to Webhooks</a>. Click on "_Connect_".<br/>
-  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/webhook.jpg"><img src="doc/webhook-th.png"/></a>
-* On the top of the page, click on "_My Applets_".
-* Click on "_New Applet_".
-* Click on "_this_".
-* In the search box, search for and click on "_Webhooks_".
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-2.png"><img src="doc/ifttt-step-2.png" width="100px"/></a>
+* On the top of the page, click on "_My Applets_".<br/>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-3.png"><img src="doc/ifttt-step-3.png" width="100px"/></a>
+* Click on "_New Applet_".<br/>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-4.png"><img src="doc/ifttt-step-4.png" width="100px"/></a>
+* Click on "_this_".<br/>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-5.png"><img src="doc/ifttt-step-5.png" width="100px"/></a>
+* In the search box, search for and click on "_Webhooks_".<br/>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-6.png"><img src="doc/ifttt-step-6.png" width="100px"/></a>
 * On the next page click on "_Receive a web request_".<br/>
-  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Request.jpg"><img src="doc/Request-th.png"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-7.png"><img src="doc/ifttt-step-7.png" width="100px"/></a>
 * Enter "_esp8266_triggered_" as the Event Name. Click on "_Create trigger_".<br/>
-  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/CreateTrigger.jpg"><img src="doc/CreateTrigger-th.png"/></a>
-* Click on "_that_"<br/>
-  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/that.jpg"><img src="doc/that-th.png"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-8.png"><img src="doc/ifttt-step-8.png" width="100px"/></a>
+* Click on "_that_".<br/>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-9.png"><img src="doc/ifttt-step-9.png" width="100px"/></a>
 * On the "_Choose action service_" search for "_Notifications_" service and Click on "_Notifications_".<br/>
-  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Notification.jpg"><img src="doc/Notification-th.png"/></a>
-* Click on "_Connect_"."
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-10.png"><img src="doc/ifttt-step-10.png" width="100px"/></a>
+* Click on "_Connect_".<br/>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-11.png"><img src="doc/ifttt-step-11.png" width="100px"/></a>
 * Click on "_Send a notification from the IFTTT app_" on the next page.<br/>
-  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ChooseAction.jpg"><img src="doc/ChooseAction-th.png"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-12.png"><img src="doc/ifttt-step-12.png" width="100px"/></a>
 * In the text box "_Notification_" replace the text with the following:
   `{{EventName}} occurred at {{OccurredAt}}`<br/>
-  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/CompleteActionField.jpg"><img src="doc/CompleteActionField-th.png"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-13.png"><img src="doc/ifttt-step-13.png" width="100px"/></a>
 * Click on "_Create action_".
 * On the next page click "_Finish_".<br/>
-  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Finish.jpg"><img src="doc/Finish-th.png"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-15.png"><img src="doc/ifttt-step-15.png" width="100px"/></a>
 * Go to the <a href="https://ifttt.com/services/maker_webhooks/settings">Webhook Settings</a> page.
-* On the top of that page it reads `Your key is:`. What follows is
+* On that page there is a URL that begins with `https://maker.ifttt.com/use/`. What follows in the URL is
   the IFTTT API key. The API key identifies the user who created that key.  In the following this key is
   referred to as `API_KEY`.<br/>
-  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/maker.jpg"><img src="doc/maker-th.png"/></a>
+  <a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/ifttt-step-17.png"><img src="doc/ifttt-step-17.png" width="100px"/></a>
 * If you are running on a Unix system you can now try to trigger an event from the command line via:
   ```
   curl -X POST https://maker.ifttt.com/trigger/esp8266_triggered/with/key/API_KEY
