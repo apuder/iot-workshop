@@ -1,9 +1,15 @@
 # Infrared Remote Communication
 
-As an extension to the previous example, the two sketches presented in this tutorial are used to communicate
-remotely between two Arduinos. Since the Arduino Uno does not have WiFi or Bluetooth capabilities, a pair of
-IR receiver and IR diode can be used to send a signal between two Arduinos. On the sender side, the wiring
-is as follows:
+As an extension to the previous example, a pair of IR receiver and IR LED is used to send a signal between
+two Arduinos. The figure below depicts the overall architecture. The sending Arduino has a button and an IR LED,
+while the receiving Arduino is connected to an IR receiver and a regular LED. Pressing the button will cause an IR
+signal with a certain pattern to be sent from the sending Arduino's IR LED. The receiving Arduino will flash
+the regular LED whenever the IR receiver picks up that particular IR signal. Infrared in this example is used
+to communicate a simple on/off signal between the two Arduinos.
+
+<img src="doc/architecture.png" width="60%"/>
+
+On the sender side, the wiring is as follows:
 
 <img src="doc/IRSenderButton_bb.png" width="50%"/>
 
