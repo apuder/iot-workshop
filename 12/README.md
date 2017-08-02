@@ -115,7 +115,7 @@ required setup:
 The `curl` command will issue an HTTPS request to the given URL. The IFTTT server identifies a user by the
 `API_KEY` and will send a push notification to the user's mobile device. For this to happen, the user must
 have installed the (free) IFTTT app for Android or iOS and be logged in to IFTTT on the mobile device.<br/>
-<a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Terminal.jpg"><img src="doc/Terminal-th.png"/></a>
+<a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/terminal.png"><img src="doc/terminal.png" width="150px"/></a>
 
 
 ### ESP8266 Sketch
@@ -142,7 +142,7 @@ sketch does not use a dedicated HTTP library. The sketch communicates to the IFT
 a plain TCP connection and by sending the
 <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Message_format">HTTP protocol</a>
 that is constructed via method `client.print()`.<br/>
-<a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/Arduino_Terminal.jpg"><img src="doc/Arduino_Terminal-th.png"/></a>
+<a href="https://raw.githubusercontent.com/apuder/iot-workshop/master/12/doc/serial-monitor.png"><img src="doc/serial-monitor.png" width="150px"/></a>
  
 
 ```c
