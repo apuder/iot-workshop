@@ -14,6 +14,8 @@ void setup() {
 
 
 void dump(decode_results& results) {
+  Serial.print("// Value: ");
+  Serial.println(results.value, HEX);
   Serial.print("unsigned int rawData[] = {");
 
   for (int i = 1;  i < results.rawlen;  i++) {

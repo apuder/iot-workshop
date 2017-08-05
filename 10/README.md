@@ -17,15 +17,17 @@ the Arduino's GPIO pin 11 as shown in the wiring diagram below.
 <img src="doc/IRReceiver_bb.png" width="50%"/>
 
 Sketch
-<a ref="IRReceiver/IRReceiver.ino">IRReceiver</a> uses the IRremote library to print out the on/off pattern
+<a href="IRReceiver/IRReceiver.ino">IRReceiver</a> uses the IRremote library to print out the high/low pattern
 of an IR signal. The following is the complete sketch of
-<a ref="IRReceiver/IRReceiver.ino">IRReceiver</a>:
+<a href="IRReceiver/IRReceiver.ino">IRReceiver</a>:
 
 ```c
 #include <IRremote.h>
 
 const int PIN_IR_RECEIVER = 11; 
+
 IRrecv ir_receiver(PIN_IR_RECEIVER);
+
 decode_results results;
 
 void setup() {
@@ -33,21 +35,24 @@ void setup() {
   ir_receiver.enableIRIn();
 }
 
-void dump(decode_results* results) {
+
+void dump(decode_results& results) {
+  Serial.print("// Value: ");
+  Serial.println(results.value, HEX);
   Serial.print("unsigned int rawData[] = {");
 
-  for (int i = 1;  i < results->rawlen;  i++) {
+  for (int i = 1;  i < results.rawlen;  i++) {
     if (i != 1) {
       Serial.print(", ");
     }
-    Serial.print(results->rawbuf[i] * USECPERTICK, DEC);
+    Serial.print(results.rawbuf[i] * USECPERTICK, DEC);
   }
   Serial.println("};");
 }
 
 void loop() {
   if (ir_receiver.decode(&results)) {
-    dump(&results);
+    dump(results);
     ir_receiver.resume();
   }
 }
@@ -57,6 +62,7 @@ Whenever an IR signal is detected, function `dump()` is called to print out the 
 pressing the on/off button of a Samsung TV remote will result in the following output in the serial monitor:
 
 ```c
+// Value: E0E040BF
 unsigned int rawData[] = {4500, 4450, 600, 1600, 600, 1600, 600, 1650, 600, 500, 600, 500, 600, 500, 600, 500, 650, 500, 600, 1600, 600, 1600, 600, 1650, 600, 500, 600, 500, 600, 500, 600, 550, 600, 500, 600, 500, 600, 1600, 600, 500, 600, 550, 600, 500, 600, 500, 600, 500, 600, 500, 600, 1650, 600, 500, 600, 1600, 600, 1650, 600, 1600, 600, 1600, 600, 1650, 600, 1600, 600};
 ```
 
@@ -68,8 +74,14 @@ representing high and low pattern can be visualized:
 
 <img src="doc/ir-signal.png"/>
 
-Note that when repeating this experiment, the numbers will be slightly different because of variations in the
-overall timing.
+Note that when repeating this experiment, the numbers will be slightly different because of small variations
+in the overall timing. The Samsung TV remote uses
+<a href="http://irq5.io/2012/07/27/infrared-remote-control-protocols-part-1/">_Pulse Distance Coding_</a>
+to encode a binary value in the IR signal it sends. Translating the signal captured above by the logic analyzer
+results in the binary value 11100000111000000100000010111111b,
+or 0xE0E040BF in hexadecimal. As shown above, this corresponds with what the
+<a href="IRReceiver/IRReceiver.ino">IRReceiver</a> sketch will print to the serial monitor.
+
 
 ### Sending
 
