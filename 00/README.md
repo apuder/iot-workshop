@@ -10,3 +10,5 @@ lead is called *anode* and needs to be connected to the positive voltage while t
 will not light up.
 
 <img src="doc/LEDResistor_bb.png" width="50%"/>
+
+Tutorial [link](https://www.youtube.com/watch?v=GcfJXjz86n0&list=PL2prrfB4uRarl12GHSbsoMmeYYlk2PLb7&t=4s&index=4)
