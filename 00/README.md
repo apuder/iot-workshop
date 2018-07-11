@@ -11,4 +11,6 @@ will not light up.
 
 <img src="doc/LEDResistor_bb.png" width="50%"/>
 
-Tutorial [link](https://www.youtube.com/watch?v=GcfJXjz86n0&list=PL2prrfB4uRarl12GHSbsoMmeYYlk2PLb7&t=4s&index=4)
+Tutorial
+
+[![Tutorial](https://img.youtube.com/vi/GcfJXjz86n0/hqdefault.jpg)](https://youtu.be/GcfJXjz86n0) 
