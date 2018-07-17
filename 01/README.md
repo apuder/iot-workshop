@@ -9,3 +9,6 @@ the same rules for the resistor and the polarity of the LED apply as discussed e
 
 <img src="doc/LEDResistorButton_bb.png" width="50%"/>
 
+Tutorial
+
+[![Tutorial](https://img.youtube.com/vi/QSwEKkHwWP4/hqdefault.jpg)](https://www.youtube.com/watch?v=QSwEKkHwWP4&list=PL2prrfB4uRarl12GHSbsoMmeYYlk2PLb7)
